@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Advent Of Code">
+
+    <test name="Git">
+        <classes>
+            <class name="uk.co.jrtapsell.advent.RunAll"/>
+        </classes>
+    </test>
+
+</suite>

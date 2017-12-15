@@ -1,7 +1,8 @@
+package uk.co.jrtapsell.advent
+
 import org.testng.Assert
 import org.testng.annotations.DataProvider
 import org.testng.annotations.Test
-import uk.co.jrtapsell.advent.Day
 import java.io.File
 
 class RunAll {
