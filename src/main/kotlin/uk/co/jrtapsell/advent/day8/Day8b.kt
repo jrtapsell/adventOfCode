@@ -8,18 +8,7 @@ import uk.co.jrtapsell.advent.MultilineFilePart
 
 object Day8b : MultilineFilePart<Int>("day8") {
     override fun calculate(input: List<String>): Int {
-        val lineRegex = Regex("([a-z]+) (dec|inc) (-?[0-9]+) if ([a-z]+) (==|<|>=|<=|>|!=) (-?[0-9]+)")
-        val values = input
-            .map { lineRegex.matchEntire(it)!!.groupValues }
-            .map { gp ->
-                Instruction(
-                        gp[1],
-                        gp[3].toInt() * (if (gp[2] == "inc") 1 else -1),
-                        gp[4],
-                        Operator.values().first { it.symbol == gp[5] },
-                        gp[6].toLong()
-                )
-            }
+        val values = getInstructions(input)
         var maxEver = Long.MIN_VALUE
         val memory = mutableMapOf<String, Long>()
         for (i in values) {
@@ -33,20 +22,4 @@ object Day8b : MultilineFilePart<Int>("day8") {
         }
         return maxEver.toInt()
     }
-
-    enum class Operator(val symbol: String, val method: (Long, Long) -> Boolean) {
-        GREATER(">", {a,b -> a > b}),
-        LESS("<", {a,b -> a < b}),
-        GREATER_EQ(">=", {a,b -> a >= b}),
-        LESS_EQ("<=", {a,b -> a <= b}),
-        EQ("==", {a,b -> a.equals(b)}),
-        N_EQ("!=", {a,b -> a != b}),
-    }
-    data class Instruction(
-        val outReg: String,
-        val change: Int,
-        val sourceReg: String,
-        val operator: Operator,
-        val amount: Long
-    )
 }

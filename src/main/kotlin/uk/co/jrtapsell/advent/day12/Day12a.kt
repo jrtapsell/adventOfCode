@@ -5,14 +5,17 @@ import uk.co.jrtapsell.advent.MultilineFilePart
 /**
  * @author James Tapsell
  */
+fun getGraph(input: List<String>): MutableMap<Int, List<Int>> {
+    return input.associate {
+        val (name, connections) = it.split("<->").map { it.trim().replace(" ", "") }
+        val id = name.toInt()
+        val neighbours = connections.split(",").map { it.toInt() }
+        id to neighbours
+    }.toMutableMap()
+}
 object Day12a: MultilineFilePart<Int>("day12") {
     override fun calculate(input: List<String>): Int {
-        val graph = input.associate {
-            val (name, connections) = it.split("<->").map { it.trim().replace(" ", "") }
-            val id = name.toInt()
-            val neighbours = connections.split(",").map { it.toInt() }
-            id to neighbours
-        }
+        val graph = getGraph(input)
 
         val visited = mutableListOf<Int>()
         val toVisit = mutableListOf<Int>()

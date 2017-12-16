@@ -7,12 +7,7 @@ import uk.co.jrtapsell.advent.MultilineFilePart
  */
 object Day12b : MultilineFilePart<Int>("day12") {
     override fun calculate(input: List<String>): Int {
-        val graph = input.associate {
-            val (name, connections) = it.split("<->").map { it.trim().replace(" ", "") }
-            val id = name.toInt()
-            val neighbours = connections.split(",").map { it.toInt() }
-            id to neighbours
-        }.toMutableMap()
+        val graph = getGraph(input)
 
         val visited = mutableListOf<Int>()
         val toVisit = mutableListOf<Int>()
