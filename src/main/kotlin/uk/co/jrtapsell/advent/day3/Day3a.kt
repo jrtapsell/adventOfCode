@@ -1,12 +1,12 @@
 package uk.co.jrtapsell.advent.day3
 
-import uk.co.jrtapsell.advent.SinglelineFilePart
+import uk.co.jrtapsell.advent.SingleLineFilePart
 
 /**
  * @author James Tapsell
  */
 
-object Day3a : SinglelineFilePart<Int>("day3") {
+object Day3a : SingleLineFilePart<Int>("day3") {
     override fun calculate(input: String): Int {
         val inputValue = input.toInt(10)
         val mat = makeMatrix(1001)

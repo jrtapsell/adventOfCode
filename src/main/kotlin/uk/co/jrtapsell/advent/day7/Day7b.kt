@@ -9,9 +9,9 @@ import uk.co.jrtapsell.advent.MultilineFilePart
 data class Node(val name: String, val weight: Int, val backingMap: Map<String, Node>) {
     var children = mutableListOf<String>()
 
-    fun nodeChildren() = children.map { backingMap.get(it)!! }
+    fun nodeChildren() = children.map { backingMap[it]!! }
     fun calcWeight(): Int {
-        return weight + children.map { backingMap.get(it)!!.calcWeight() }.sum()
+        return weight + children.map { backingMap[it]!!.calcWeight() }.sum()
     }
 
     override fun toString(): String {

@@ -1,11 +1,11 @@
 package uk.co.jrtapsell.advent.day16
 
-import uk.co.jrtapsell.advent.SinglelineFilePart
+import uk.co.jrtapsell.advent.SingleLineFilePart
 
 /**
  * @author James Tapsell
  */
-object Day16b: SinglelineFilePart<String>("day16") {
+object Day16b: SingleLineFilePart<String>("day16") {
     override fun calculate(input: String): String {
         var items = ('a'..'p').toMutableList()
         val split = input.split(",")

@@ -1,13 +1,13 @@
 package uk.co.jrtapsell.advent.day11
 
-import uk.co.jrtapsell.advent.SinglelineFilePart
+import uk.co.jrtapsell.advent.SingleLineFilePart
 
 /**
  * @author James Tapsell
  */
 
 typealias OtherDirection = uk.co.jrtapsell.advent.day11.Direction
-object Day11b: SinglelineFilePart<Int>("day11") {
+object Day11b: SingleLineFilePart<Int>("day11") {
 
     enum class Direction(val dQ: Int, val dR: Int) {
         N(0,-1),

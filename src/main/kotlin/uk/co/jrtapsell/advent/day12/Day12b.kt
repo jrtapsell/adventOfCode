@@ -27,9 +27,9 @@ object Day12b : MultilineFilePart<Int>("day12") {
             while (!toVisit.isEmpty()) {
                 val current = toVisit.removeAt(0)
                 visited.add(current)
-                val neightbours = graph[current]!!
+                val neighbours = graph[current]!!
 
-                for (i in neightbours) {
+                for (i in neighbours) {
                     if (i !in visited && i !in toVisit) {
                         toVisit.add(i)
                     }

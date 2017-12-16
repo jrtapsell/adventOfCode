@@ -1,6 +1,6 @@
 package uk.co.jrtapsell.advent.day11
 
-import uk.co.jrtapsell.advent.SinglelineFilePart
+import uk.co.jrtapsell.advent.SingleLineFilePart
 
 /**
  * @author James Tapsell
@@ -14,7 +14,7 @@ enum class Direction {
     val x = Math.sin(radians)
 }
 
-object Day11a: SinglelineFilePart<Int>("day11") {
+object Day11a: SingleLineFilePart<Int>("day11") {
     override fun calculate(input: String): Int {
         val steps = input
             .split(",")

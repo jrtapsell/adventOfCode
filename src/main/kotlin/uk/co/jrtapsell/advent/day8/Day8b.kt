@@ -9,7 +9,7 @@ import uk.co.jrtapsell.advent.MultilineFilePart
 object Day8b : MultilineFilePart<Int>("day8") {
     override fun calculate(input: List<String>): Int {
         val lineRegex = Regex("([a-z]+) (dec|inc) (-?[0-9]+) if ([a-z]+) (==|<|>=|<=|>|!=) (-?[0-9]+)")
-        var values = input
+        val values = input
             .map { lineRegex.matchEntire(it)!!.groupValues }
             .map { gp ->
                 Instruction(

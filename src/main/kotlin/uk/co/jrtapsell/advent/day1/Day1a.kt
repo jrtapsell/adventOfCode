@@ -1,8 +1,8 @@
 package uk.co.jrtapsell.advent.day1
 
-import uk.co.jrtapsell.advent.SinglelineFilePart
+import uk.co.jrtapsell.advent.SingleLineFilePart
 
-object Day1a: SinglelineFilePart<Int>("day1") {
+object Day1a: SingleLineFilePart<Int>("day1") {
 
     override fun calculate(input: String): Int {
         val firstDifferent = input.mapIndexed { index, it -> index to it }

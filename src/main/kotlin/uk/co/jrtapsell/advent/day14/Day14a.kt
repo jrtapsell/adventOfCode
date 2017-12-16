@@ -1,12 +1,12 @@
 package uk.co.jrtapsell.advent.day14
 
-import uk.co.jrtapsell.advent.SinglelineFilePart
+import uk.co.jrtapsell.advent.SingleLineFilePart
 import uk.co.jrtapsell.advent.day10.Day10b
 
 /**
  * @author James Tapsell
  */
-object Day14a: SinglelineFilePart<Int>("day14") {
+object Day14a: SingleLineFilePart<Int>("day14") {
     override fun calculate(input: String): Int {
         return (0..127).map {
             Day10b.getHashInts(input + "-" + it.toString())

@@ -1,16 +1,18 @@
 package uk.co.jrtapsell.advent.day10
 
-import uk.co.jrtapsell.advent.SinglelineFilePart
+import uk.co.jrtapsell.advent.SingleLineFilePart
 
 /**
  * @author James Tapsell
  */
 
-object Day10b: SinglelineFilePart<String>("day10") {
+object Day10b: SingleLineFilePart<String>("day10") {
 
     override fun calculate(input: String): String {
         val items = getHashInts(input)
-        return items.map { it.toString(16).padStart(2, '0') }.joinToString("")
+        return items.joinToString("") {
+            it.toString(16).padStart(2, '0')
+        }
 
     }
 
