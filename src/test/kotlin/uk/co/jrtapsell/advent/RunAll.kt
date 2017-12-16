@@ -17,8 +17,11 @@ class RunAll {
             val dayPart = it[1]
             val dayClass = Class.forName("uk.co.jrtapsell.advent.day$dayNumber.Day$dayNumber$dayPart")
             val dayObject = dayClass.kotlin.objectInstance as Day<*, *>
-            it.subList(2, it.size).zip(names).map { (value, name) ->
-                val data = parse(value)
+            val dataItems = it.subList(2, it.size)
+            names.indices.map {
+                val value = if (it in dataItems.indices) dataItems[it] else null
+                val name = names[it]
+                val data = value?.let { parse(it) }
                 arrayOf(dayObject, data, name)
             }
         }.toTypedArray()
