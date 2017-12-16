@@ -1,12 +1,12 @@
 package uk.co.jrtapsell.advent.day9
 
-import uk.co.jrtapsell.advent.MultilineFileDay
+import uk.co.jrtapsell.advent.MultilineFilePart
 
 /**
  * @author James Tapsell
  */
 
-object Day9b: MultilineFileDay<Int>("day9") {
+object Day9b: MultilineFilePart<Int>("day9") {
     override fun calculate(input: List<String>): Int {
         var reduced = input[0]
         while (reduced.contains("!!")) {

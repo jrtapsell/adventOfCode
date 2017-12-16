@@ -1,6 +1,6 @@
 package uk.co.jrtapsell.advent.day7
 
-import uk.co.jrtapsell.advent.MultilineFileDay
+import uk.co.jrtapsell.advent.MultilineFilePart
 
 /**
  * @author James Tapsell
@@ -19,7 +19,7 @@ data class Node(val name: String, val weight: Int, val backingMap: Map<String, N
     }
 }
 
-object Day7b : MultilineFileDay<Int>("day7") {
+object Day7b : MultilineFilePart<Int>("day7") {
     override fun calculate(input: List<String>): Int {
         val lineRegex = Regex("""([a-z]+) \(([0-9]+)\)(?: -> ([a-z ,]+))?""")
         val backingMap = mutableMapOf<String, Node>()

@@ -1,12 +1,12 @@
 package uk.co.jrtapsell.advent.day4
 
-import uk.co.jrtapsell.advent.MultilineFileDay
+import uk.co.jrtapsell.advent.MultilineFilePart
 
 /**
  * @author James Tapsell
  */
 
-object Day4b: MultilineFileDay<Int>("day4") {
+object Day4b: MultilineFilePart<Int>("day4") {
     override fun calculate(input: List<String>): Int {
         return input.map { wordCounts(it) }
             .count { it.none { it.value > 1 } }

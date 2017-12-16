@@ -1,8 +1,8 @@
 package uk.co.jrtapsell.advent.day1
 
-import uk.co.jrtapsell.advent.SinglelineFileDay
+import uk.co.jrtapsell.advent.SinglelineFilePart
 
-object Day1b : SinglelineFileDay<Int>("day1") {
+object Day1b : SinglelineFilePart<Int>("day1") {
 
     override fun calculate(input: String): Int {
         return input.filterIndexed { index, c ->

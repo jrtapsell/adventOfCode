@@ -1,12 +1,12 @@
 package uk.co.jrtapsell.advent.day13
 
-import uk.co.jrtapsell.advent.MultilineFileDay
+import uk.co.jrtapsell.advent.MultilineFilePart
 
 /**
  * @author James Tapsell
  */
 data class Scanner(val id: Int, val range: Int)
-object Day13b: MultilineFileDay<Int>("day13") {
+object Day13b: MultilineFilePart<Int>("day13") {
     override fun calculate(input: List<String>): Int {
         val items = input.map {
             val (id, range) = it.split(":")

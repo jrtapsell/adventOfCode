@@ -1,13 +1,12 @@
 package uk.co.jrtapsell.advent.day3
 
-import uk.co.jrtapsell.advent.Day
-import uk.co.jrtapsell.advent.SinglelineFileDay
+import uk.co.jrtapsell.advent.SinglelineFilePart
 
 /**
  * @author James Tapsell
  */
 
-object Day3b: SinglelineFileDay<Int>("day3") {
+object Day3b: SinglelineFilePart<Int>("day3") {
 
     override fun calculate(input: String): Int {
         return makeMatrix(1001, input.toInt(10))

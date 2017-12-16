@@ -1,11 +1,11 @@
 package uk.co.jrtapsell.advent.day12
 
-import uk.co.jrtapsell.advent.MultilineFileDay
+import uk.co.jrtapsell.advent.MultilineFilePart
 
 /**
  * @author James Tapsell
  */
-object Day12b : MultilineFileDay<Int>("day12") {
+object Day12b : MultilineFilePart<Int>("day12") {
     override fun calculate(input: List<String>): Int {
         val graph = input.associate {
             val (name, connections) = it.split("<->").map { it.trim().replace(" ", "") }

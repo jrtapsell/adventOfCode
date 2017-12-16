@@ -1,12 +1,12 @@
 package uk.co.jrtapsell.advent.day8
 
-import uk.co.jrtapsell.advent.MultilineFileDay
+import uk.co.jrtapsell.advent.MultilineFilePart
 
 /**
  * @author James Tapsell
  */
 
-object Day8a : MultilineFileDay<Int>("day8") {
+object Day8a : MultilineFilePart<Int>("day8") {
     override fun calculate(input: List<String>): Int {
         val lineRegex = Regex("([a-z]+) (dec|inc) (-?[0-9]+) if ([a-z]+) (==|<|>=|<=|>|!=) (-?[0-9]+)")
         var values = input

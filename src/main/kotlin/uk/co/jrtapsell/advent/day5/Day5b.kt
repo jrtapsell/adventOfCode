@@ -1,12 +1,12 @@
 package uk.co.jrtapsell.advent.day5
 
-import uk.co.jrtapsell.advent.MultilineFileDay
+import uk.co.jrtapsell.advent.MultilineFilePart
 
 /**
  * @author James Tapsell
  */
 
-object Day5b : MultilineFileDay<Int>("day5") {
+object Day5b : MultilineFilePart<Int>("day5") {
     override fun calculate(input: List<String>): Int {
         val values = input.map { it.toInt(10) }.toMutableList()
         var pointer = 0

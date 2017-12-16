@@ -1,11 +1,11 @@
 package uk.co.jrtapsell.advent.day15
 
-import uk.co.jrtapsell.advent.MultilineFileDay
+import uk.co.jrtapsell.advent.MultilineFilePart
 
 /**
  * @author James Tapsell
  */
-object Day15a: MultilineFileDay<Int>("day15") {
+object Day15a: MultilineFilePart<Int>("day15") {
     override fun calculate(input: List<String>): Int {
         val aStart = input[0].split(" ").last().toLong(10)
         val bStart = input[1].split(" ").last().toLong(10)

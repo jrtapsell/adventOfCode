@@ -1,7 +1,6 @@
 package uk.co.jrtapsell.advent.day10
 
-import uk.co.jrtapsell.advent.Day
-import uk.co.jrtapsell.advent.SinglelineFileDay
+import uk.co.jrtapsell.advent.SinglelineFilePart
 
 /**
  * @author James Tapsell
@@ -10,7 +9,7 @@ val stringLength = 256
 //val input = "3,4,1,5"
 //val stringLength = 5
 
-object Day10a: SinglelineFileDay<Int>("day10") {
+object Day10a: SinglelineFilePart<Int>("day10") {
 
     override fun calculate(input: String): Int {
         val input = input.split(",").map { it.toInt() }

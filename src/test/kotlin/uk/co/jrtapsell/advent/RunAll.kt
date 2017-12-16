@@ -8,7 +8,7 @@ import java.io.File
 class RunAll {
     @DataProvider(name = "days")
     fun dataProvider(): Array<Array<Any?>> {
-        val fileData = File("src/test/resources/data.csv").readLines()
+        val fileData = File("data.csv").readLines()
         val header = fileData[0].split(",")
         val dataRows = fileData.subList(1, fileData.size).map { it.split(",") }
         val names = header.subList(2, header.size)
@@ -16,7 +16,7 @@ class RunAll {
             val dayNumber = it[0].toInt(10)
             val dayPart = it[1]
             val dayClass = Class.forName("uk.co.jrtapsell.advent.day$dayNumber.Day$dayNumber$dayPart")
-            val dayObject = dayClass.kotlin.objectInstance as Day<*, *>
+            val dayObject = dayClass.kotlin.objectInstance as Part<*, *>
             val dataItems = it.subList(2, it.size)
             names.indices.map {
                 val value = if (it in dataItems.indices) dataItems[it] else null
@@ -37,7 +37,7 @@ class RunAll {
     }
 
     @Test(dataProvider = "days", timeOut = 30000)
-    fun run(day: Day<*, *>, result: Any?, tag: String) {
+    fun run(day: Part<*, *>, result: Any?, tag: String) {
         Assert.assertEquals(day.run(tag), result)
     }
 }

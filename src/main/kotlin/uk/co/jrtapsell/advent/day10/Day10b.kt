@@ -1,13 +1,12 @@
 package uk.co.jrtapsell.advent.day10
 
-import uk.co.jrtapsell.advent.Day
-import uk.co.jrtapsell.advent.SinglelineFileDay
+import uk.co.jrtapsell.advent.SinglelineFilePart
 
 /**
  * @author James Tapsell
  */
 
-object Day10b: SinglelineFileDay<String>("day10") {
+object Day10b: SinglelineFilePart<String>("day10") {
 
     override fun calculate(input: String): String {
         val items = getHashInts(input)

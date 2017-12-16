@@ -1,13 +1,12 @@
 package uk.co.jrtapsell.advent.day6
 
-import uk.co.jrtapsell.advent.Day
-import uk.co.jrtapsell.advent.SinglelineFileDay
+import uk.co.jrtapsell.advent.SinglelineFilePart
 
 /**
  * @author James Tapsell
  */
 
-object Day6b : SinglelineFileDay<Int>("day6") {
+object Day6b : SinglelineFilePart<Int>("day6") {
 
     override fun calculate(input: String): Int {
         val input = input.split("\t").map { it.toInt(10) }
