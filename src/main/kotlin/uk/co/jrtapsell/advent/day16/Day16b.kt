@@ -14,33 +14,7 @@ object Day16b: SingleLineFilePart<String>("day16") {
         while (!seen.contains(string)) {
             seen.add(asString(items))
             for (it in split) {
-                val move = it[0]
-                val command = it.substring(1)
-                when (move) {
-                    'x' -> {
-                        val (first, second) = command.split("/").map { it.toInt(10) }
-                        val temp = items[first]
-                        items[first] = items[second]
-                        items[second] = temp
-                        "swapI($first, $second)"
-                    }
-                    's' -> {
-                        val amount = command.toInt(10)
-                        val pivot = items.size - amount
-                        val temp = items.subList(pivot, items.size) + items.subList(0, pivot)
-                        items = temp.toMutableList()
-                        "rotate($amount)"
-                    }
-                    'p' -> {
-                        val (first, second) = command.split("/").map { it[0] }
-                        val firstIndex = items.indexOf(first)
-                        val secondIndex = items.indexOf(second)
-                        items[firstIndex] = second
-                        items[secondIndex] = first
-                        "swapV($first, $second)"
-                    }
-                    else -> throw AssertionError("Unknown command: `$it`")
-                }
+                items = Moves.run(items, it)
             }
             string = asString(items)
         }
