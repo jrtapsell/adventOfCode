@@ -11,7 +11,6 @@ object Day21a : MultilineFilePart<Int>("day21") {
         var grid = startingGrid
 
         (0..4).forEach {
-            grid.display()
             grid = grid.step(book2, book3)
         }
 

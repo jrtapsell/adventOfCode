@@ -54,19 +54,17 @@ fun gridFromString(input: String): Grid {
 
 fun Grid.step(book2: Book, book3: Book): Grid {
     val chunkSize = if (size % 2 == 0) 2 else 3
-    val grids = (0 until size step chunkSize).map { row -> (0 until size step chunkSize).map { row to it } }
+    val chunkNumbers = 0 until size step chunkSize
+    val grids = chunkNumbers
+        .map { row -> chunkNumbers.map { row to it } }
         .map {
             it.map { (row, column) ->
                 val subGrid = subGrid((row until row + chunkSize), (column until column + chunkSize))
-                subGrid.toNumbers()
+                subGrid.toNumber()
             }
         }
     val book = if (chunkSize == 2) book2 else book3
-    val newGrids = grids.map {
-        it.map {
-            getCrossover(it, book)
-        }
-    }
+    val newGrids = grids.map { it.map { book[it]!! } }
     val newChunkSize = chunkSize + 1
     val newSize = newChunkSize * newGrids.size
     val newGrid = Array(newSize, {Array(newSize, {false} )})
@@ -85,15 +83,6 @@ fun Grid.step(book2: Book, book3: Book): Grid {
         }
     }
     return newGrid
-}
-
-fun getCrossover(grids: List<Int>, book: Book): Grid {
-    for (i in grids) {
-        if (i in book) {
-            return book[i]!!
-        }
-    }
-    throw AssertionError()
 }
 
 fun <T, U> Pair<T, T>.map(function: (T) -> U) = listOf(function(first), function(second))
@@ -132,20 +121,21 @@ fun Grid.rotate(): Grid {
     }
 }
 
-fun Grid.toNumbers(): List<Int> {
-    val original = toNumber()
+fun Grid.getTransforms(): List<Grid> {
     val x = flipX()
-    val flippedX = x.toNumber()
     val y = flipY()
-    val flippedY = y.toNumber()
-    val flips = listOf(original, flippedX, flippedY)
     var current = this
     val rotates = (0..3).map {
         current = current.rotate()
-        val v =current.toNumber()
-        v
+        current
     }
-    return rotates + flips
+    return rotates + listOf(x, y, this)
+}
+
+fun Grid.toNumbers(): List<Int> {
+    return this.getTransforms()
+        .flatMap { it.getTransforms() }
+        .map { it.toNumber() }
 }
 
 fun Grid.flipY(): Grid = reversedArray()
