@@ -1,31 +1,33 @@
 package uk.co.jrtapsell.advent.day19
 
-import javafx.scene.input.KeyCode
+//import javafx.scene.input.KeyCode
 import uk.co.jrtapsell.advent.MultilineFilePart
 import uk.co.jrtapsell.advent.safeMod
-import java.awt.Robot
+//import java.awt.Robot
 
 /**
  * @author James Tapsell
  */
-val r = Robot()
-enum class Direction(val rowDelta: Int, val columnDelta: Int, val track: Char, val keyCode: KeyCode) {
-    UP(-1, 0, '|', KeyCode.UP),
-    RIGHT(0,1, '-', KeyCode.RIGHT),
-    DOWN(1,0, '|', KeyCode.DOWN),
-    LEFT(0,-1, '-', KeyCode.LEFT);
+//val r = Robot()
+enum class Direction(val rowDelta: Int, val columnDelta: Int, val track: Char, /*val keyCode: KeyCode*/) {
+    UP(-1, 0, '|'/*, KeyCode.UP*/),
+    RIGHT(0,1, '-'/*, KeyCode.RIGHT*/),
+    DOWN(1,0, '|'/*, KeyCode.DOWN*/),
+    LEFT(0,-1, '-'/*, KeyCode.LEFT*/);
 
     companion object {
         val VALS = Direction.values()
         val COUNT = VALS.count()
     }
 
+    /*
     fun sendKeycode() {
         r.keyPress(keyCode.code)
         r.delay(50)
         r.keyRelease(keyCode.code)
         r.delay(100)
     }
+    */
 }
 
 data class State(val rowNumber: Int, val columnNumber: Int, val facing: Direction) {
