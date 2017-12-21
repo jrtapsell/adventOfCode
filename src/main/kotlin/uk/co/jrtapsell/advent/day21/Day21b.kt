@@ -1,7 +1,11 @@
 package uk.co.jrtapsell.advent.day21
 
 import uk.co.jrtapsell.advent.MultilineFilePart
-object Day21a : MultilineFilePart<Int>("day21") {
+
+/**
+ * @author James Tapsell
+ */
+object Day21b : MultilineFilePart<Int>("day21") {
     override fun calculate(input: List<String>): Int {
 
         val startingGrid: Grid = gridFromString(".#./..#/###")
@@ -10,8 +14,7 @@ object Day21a : MultilineFilePart<Int>("day21") {
 
         var grid = startingGrid
 
-        (0..4).forEach {
-            grid.display()
+        (0..17).forEach {
             grid = grid.step(book2, book3)
         }
 

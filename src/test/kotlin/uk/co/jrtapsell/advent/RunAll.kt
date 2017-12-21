@@ -49,7 +49,7 @@ class RunAll {
         }
     }
 
-    @Test(dataProvider = "days", timeOut = 3000)
+    @Test(dataProvider = "days", timeOut = 30000)
     fun <T> run(dayRun: DayRun<T>) {
         val result = dayRun.partObj.run(dayRun.account)
         Assert.assertEquals(result, dayRun.result)
