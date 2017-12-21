@@ -10,7 +10,7 @@ object Day11bOLD: SingleLineFilePart<Int>("day11") {
     override fun calculate(input: String): Int {
         val steps = input
             .split(",")
-            .map { Direction.valueOf(it.toUpperCase()) }
+            .map { DirectionOld.valueOf(it.toUpperCase()) }
 
         var max = Int.MIN_VALUE
 

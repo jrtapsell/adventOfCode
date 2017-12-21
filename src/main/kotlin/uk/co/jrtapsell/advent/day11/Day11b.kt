@@ -6,7 +6,6 @@ import uk.co.jrtapsell.advent.SingleLineFilePart
  * @author James Tapsell
  */
 
-typealias OtherDirection = uk.co.jrtapsell.advent.day11.Direction
 object Day11b: SingleLineFilePart<Int>("day11") {
 
     enum class Direction(val dQ: Int, val dR: Int) {
@@ -29,15 +28,22 @@ object Day11b: SingleLineFilePart<Int>("day11") {
             .split(",")
             .map { Direction.valueOf(it.toUpperCase()) }
 
-        val index = steps.indices.map { steps.subList(0, it) }
-            .map { it.sumBy { it.dQ } to it.sumBy { it.dR } }
+        var sumDq = 0
+        var sumDr = 0
+        val index = steps.indices
+            .map {
+                sumDq += steps[it].dQ
+                sumDr += steps[it].dR
+                sumDq to sumDr
+            }
             .map { (q,r) ->
                 Cube(q,r, -q-r)
             }
             .mapIndexed { i, q -> i to q.distance() }
-            .maxBy { it.second }!!.first
-        return getShortestStepsTo(steps.subList(0, index).map {
-            OtherDirection.valueOf(it.name)
-        })
+            .maxBy { it.second }!!
+        return index.second
+        //return getShortestStepsTo(steps.subList(0, index.first).map {
+        //    OtherDirection.valueOf(it.name)
+        //})
     }
 }

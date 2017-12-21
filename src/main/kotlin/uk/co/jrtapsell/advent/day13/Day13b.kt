@@ -14,7 +14,7 @@ object Day13b: MultilineFilePart<Int>("day13") {
         }
         var offset = 0
         while (true) {
-            val sum = items.map { (id, range) ->
+            val sum = items.any { (id, range) ->
                 val scannerPlace = (offset + id) % ((range * 2) - 2)
 
                 val scannerValue = if (scannerPlace >= range) {
@@ -22,13 +22,9 @@ object Day13b: MultilineFilePart<Int>("day13") {
                 } else {
                     scannerPlace
                 }
-                if (scannerValue == 0) {
-                    1
-                } else {
-                    0
-                }
-            }.sum()
-            if (sum == 0) {
+                scannerValue == 0
+            }
+            if (!sum) {
                 return offset
             }
             offset++

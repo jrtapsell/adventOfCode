@@ -10,18 +10,17 @@ object Day15b : MultilineFilePart<Int>("day15") {
         val aStart = input[0].split(" ").last().toLong(10)
         val bStart = input[1].split(" ").last().toLong(10)
 
-        val aSeq = makeSequence(aStart, 16807, 4).iterator()
-        val bSeq = makeSequence(bStart, 48271, 8).iterator()
+        val aSeq = makeSequence(aStart, 16807, 4)
+        val bSeq = makeSequence(bStart, 48271, 8)
 
-        var count = 0
-        for (i in (0 until 5e6.toLong())) {
-            val a = aSeq.next() % 65536L
-            val b = bSeq.next() % 65536L
-            if (a == b) {
-                count++
-            }
+        val aItt = aSeq.iterator()
+        val bItt = bSeq.iterator()
+
+        return (0 until 5e6.toLong()).count {
+            val a = aItt.next() % 65536L
+            val b = bItt.next() % 65536L
+            a == b
         }
-        return count
     }
 
     private fun makeSequence(aStart: Long, factor: Long, mod: Long): Sequence<Long> {

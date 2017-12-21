@@ -12,10 +12,12 @@ object Day6b : SingleLineFilePart<Int>("day6") {
         val input = input.split("\t").map { it.toInt(10) }
         val counts = input.toMutableList()
         val seen = mutableListOf<String>()
+        val seenSet = mutableSetOf<String>()
         var current = ""
-        while (!seen.contains(counts.toString())) {
+        while (!seenSet.contains(counts.toString())) {
             current = counts.toString()
             seen.add(current)
+            seenSet.add(current)
             val max = counts.max()
             var index = counts.indexOf(max)
             var carry = counts[index]
