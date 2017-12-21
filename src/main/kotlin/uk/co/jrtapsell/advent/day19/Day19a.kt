@@ -9,7 +9,7 @@ import uk.co.jrtapsell.advent.safeMod
  * @author James Tapsell
  */
 //val r = Robot()
-enum class Direction(val rowDelta: Int, val columnDelta: Int, val track: Char, /*val keyCode: KeyCode*/) {
+enum class Direction(val rowDelta: Int, val columnDelta: Int, val track: Char/*, val keyCode: KeyCode*/) {
     UP(-1, 0, '|'/*, KeyCode.UP*/),
     RIGHT(0,1, '-'/*, KeyCode.RIGHT*/),
     DOWN(1,0, '|'/*, KeyCode.DOWN*/),
